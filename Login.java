@@ -1,4 +1,4 @@
-package andycpp;
+package PracticeJava;
 
 import java.util.Scanner;
 class Check{
