@@ -5,6 +5,8 @@ import java.util.Scanner;
 /*1.定义并测试一个employee类，员工属性包括编号，姓名，基本薪水，薪水增长额，
  * 包括计算薪水增长额及计算增长后的工资总额的操作方法。
  * 2.统计出一串字符串中某个字母出现的次数。
+ * 3.设计一个表示用户的user类，类中的变量有用户名/口令和记录用户个数的变量，定义类的3个构造方法
+ * （无参、为用户名赋值、为用户名和口令赋值）、获取和设置口令的方法和返回类信息的方法.
  */
 class EmployeeInfo {
 	private String id;
@@ -78,12 +80,37 @@ class Str_Count{
 		this.count = 0;
 	}
 }
+class User{
+	private String name;
+	private String pwd;
+	private int count;
+	public User(){
+	}
+	public User(String name){
+		this.name = name;
+	}
+	public User(String name, String pwd){
+		this.name = name;
+		this.pwd = pwd;
+	}
+	public void setPwd(String pwd){
+		this.pwd = pwd;
+	}
+	public String getPwd(){
+		return this.pwd;
+	}
+	public void prt_User(){
+		System.out.println("the name " + this.name + "'s password is " + this.pwd + ".");
+	}
+}
 public class Employee{
 	public static void main(String[] args){
-		EmployeeInfo e = new EmployeeInfo("1001", "Bob", 20000, 1000);
-		e.print_baseemployee();
-		e.print_addafteremployee();
-		Str_Count c = new Str_Count("", 'h');
-		c.print();
+//		EmployeeInfo e = new EmployeeInfo("1001", "Bob", 20000, 1000);
+//		Str_Count c = new Str_Count("", 'h');
+		User u = new User("Salad", "admin");
+//		e.print_baseemployee();
+//		e.print_addafteremployee();		
+//		c.print();
+		u.prt_User();
 	}
 }
