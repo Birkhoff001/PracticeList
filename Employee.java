@@ -7,6 +7,8 @@ import java.util.Scanner;
  * 2.统计出一串字符串中某个字母出现的次数。
  * 3.设计一个表示用户的user类，类中的变量有用户名/口令和记录用户个数的变量，定义类的3个构造方法
  * （无参、为用户名赋值、为用户名和口令赋值）、获取和设置口令的方法和返回类信息的方法.
+ * 4.字符串操作：从一串字符串中提取当天日期；将字符串中的部分字符替换；取出字符串中第N个字符；
+ * 清除字符串中的所有X字符；清除字符串中的所有空格；从任意输入的身份证中提取此人的出生日期。
  */
 class EmployeeInfo {
 	private String id;
@@ -83,15 +85,18 @@ class Str_Count{
 class User{
 	private String name;
 	private String pwd;
-	private int count;
+	private static int user_num;
 	public User(){
+		user_num++;
 	}
 	public User(String name){
 		this.name = name;
+		user_num++;
 	}
 	public User(String name, String pwd){
 		this.name = name;
 		this.pwd = pwd;
+		user_num++;
 	}
 	public void setPwd(String pwd){
 		this.pwd = pwd;
@@ -100,17 +105,34 @@ class User{
 		return this.pwd;
 	}
 	public void prt_User(){
-		System.out.println("the name " + this.name + "'s password is " + this.pwd + ".");
+		System.out.println("User name: " + this.name + "\n" + "password: " + this.pwd + "\n" + "usernumber: " + user_num);
+	}
+}
+class StrOperate{
+	private String s;
+	public StrOperate(String s){
+		this.s = s;
+		Str_Count str_Count = new Str_Count(s, '0');
+		str_Count.input();
+	}
+	public void getDate(String s){
+		this.s = s;
+		int a;
+		System.out.println("The date: ");
 	}
 }
 public class Employee{
 	public static void main(String[] args){
 //		EmployeeInfo e = new EmployeeInfo("1001", "Bob", 20000, 1000);
 //		Str_Count c = new Str_Count("", 'h');
-		User u = new User("Salad", "admin");
+		StrOperate so = new StrOperate("");
+//		User u = new User("Salad", "admin");
+//		User b = new User("Bob");
+//		User s = new User();
 //		e.print_baseemployee();
 //		e.print_addafteremployee();		
 //		c.print();
-		u.prt_User();
+//		u.prt_User();
+		so.getDate("");
 	}
 }
